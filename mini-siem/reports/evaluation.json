@@ -1,0 +1,112 @@
+{
+  "dense_benchmark": {
+    "events": 10000,
+    "seconds": 4.1918,
+    "events_per_second": 2385.6,
+    "active_alerts": 1,
+    "largest_incident_evidence": 10000,
+    "scope": "Synthetic single-host failure burst at 1000 events/second; full ingestion and correlation."
+  },
+  "dataset": "9 deterministic synthetic scenarios; scenario-rule pairs are evaluation units",
+  "limitations": "Designed lab scenarios only; these scores do not estimate production accuracy or attack coverage.",
+  "environment": {
+    "python": "3.14.6",
+    "platform": "Windows-11-10.0.22000-SP0"
+  },
+  "true_positives": 8,
+  "false_positives": 0,
+  "false_negatives": 0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "scenarios_passed": 9,
+  "scenarios": [
+    {
+      "scenario": "normal",
+      "expected_rules": [],
+      "detected_rules": [],
+      "passed": true
+    },
+    {
+      "scenario": "mistyped_password",
+      "expected_rules": [],
+      "detected_rules": [],
+      "passed": true
+    },
+    {
+      "scenario": "brute_force",
+      "expected_rules": [
+        "Repeated failed logins"
+      ],
+      "detected_rules": [
+        "Repeated failed logins"
+      ],
+      "passed": true
+    },
+    {
+      "scenario": "success_after_failures",
+      "expected_rules": [
+        "Repeated failed logins",
+        "Success after failures"
+      ],
+      "detected_rules": [
+        "Repeated failed logins",
+        "Success after failures"
+      ],
+      "passed": true
+    },
+    {
+      "scenario": "account_spray",
+      "expected_rules": [
+        "Multiple accounts targeted",
+        "Repeated failed logins"
+      ],
+      "detected_rules": [
+        "Multiple accounts targeted",
+        "Repeated failed logins"
+      ],
+      "passed": true
+    },
+    {
+      "scenario": "outside_window",
+      "expected_rules": [],
+      "detected_rules": [],
+      "passed": true
+    },
+    {
+      "scenario": "different_hosts",
+      "expected_rules": [],
+      "detected_rules": [],
+      "passed": true
+    },
+    {
+      "scenario": "different_account_success",
+      "expected_rules": [
+        "Repeated failed logins"
+      ],
+      "detected_rules": [
+        "Repeated failed logins"
+      ],
+      "passed": true
+    },
+    {
+      "scenario": "cross_file_late_and_overlap",
+      "expected_rules": [
+        "Repeated failed logins",
+        "Success after failures"
+      ],
+      "detected_rules": [
+        "Repeated failed logins",
+        "Success after failures"
+      ],
+      "passed": true
+    }
+  ],
+  "benchmark": {
+    "events": 10000,
+    "input_bytes": 1004200,
+    "seconds": 0.695,
+    "events_per_second": 14387.6,
+    "active_alerts": 0,
+    "scope": "One local benign batch: parsing, inserts, deduplication, full correlation and commit; database creation excluded."
+  }
+}
